@@ -52,9 +52,15 @@ namespace Eproject.Controllers
             var x = from a in db.UserLogins
                     where a.Email.Equals(lg.Email) && a.Password.Equals(lg.Password)
                     select a;
+
             Login log = db.UserLogins.FirstOrDefault(a=>a.Email==lg.Email);
+            Agent age = db.AgentLogins.FirstOrDefault(a=>a.UserId==log.id);
             if (x.Any())
             {
+                if (age != null)
+                {
+                    HttpContext.Session.SetInt32("AID", age.AgentId);
+                }
                 HttpContext.Session.SetString("u", lg.Email);
                 HttpContext.Session.SetString("u", lg.Email);
                 HttpContext.Session.SetInt32("ID", log.id);

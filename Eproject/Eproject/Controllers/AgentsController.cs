@@ -21,9 +21,9 @@ namespace Eproject.Controllers
         // GET: Agents
         public async Task<IActionResult> Index()
         {
-              return _context.AgentLogins != null ? 
-                          View(await _context.AgentLogins.ToListAsync()) :
-                          Problem("Entity set 'Dbs.AgentLogins'  is null.");
+              return _context.AgentLogins != null ?
+              View(await _context.AgentLogins.ToListAsync()) :
+              Problem("Entity set 'Dbs.AgentLogins' is null.");
         }
 
         // GET: Agents/Details/5
